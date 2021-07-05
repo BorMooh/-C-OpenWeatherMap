@@ -18,11 +18,15 @@ namespace _WPF_OpenWeatherMap
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+    //API: `http://api.openweathermap.org/data/2.5/weather?q=${inputLocation}&appid=16f364f0a3b530faec39488f8a34aab3`;
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+
+            APIHelper.InitializeClient();
         }
     }
 }

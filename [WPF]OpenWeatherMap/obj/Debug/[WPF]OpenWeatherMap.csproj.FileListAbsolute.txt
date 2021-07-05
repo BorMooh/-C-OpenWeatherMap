@@ -1,0 +1,15 @@
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\bin\Debug\[WPF]OpenWeatherMap.exe.config
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\bin\Debug\[WPF]OpenWeatherMap.exe
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\bin\Debug\[WPF]OpenWeatherMap.pdb
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\[WPF]OpenWeatherMap.csprojAssemblyReference.cache
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\MainWindow.g.cs
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\App.g.cs
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\[WPF]OpenWeatherMap_MarkupCompile.cache
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\[WPF]OpenWeatherMap_MarkupCompile.lref
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\MainWindow.baml
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\[WPF]OpenWeatherMap.g.resources
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\_WPF_OpenWeatherMap.Properties.Resources.resources
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\[WPF]OpenWeatherMap.csproj.GenerateResource.cache
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\[WPF]OpenWeatherMap.csproj.CoreCompileInputs.cache
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\[WPF]OpenWeatherMap.exe
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\[WPF]OpenWeatherMap.pdb

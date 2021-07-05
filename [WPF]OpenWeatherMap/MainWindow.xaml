@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_WPF_OpenWeatherMap"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Weather Application" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
+        <!-- Definiranje vrstic -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <!-- Input/Search -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <ComboBox x:Name="inputField" Width="100" Height="30"></ComboBox>
+            <Button x:Name="btnSearch" Width="30" Height="30">O</Button>
+        </StackPanel>
+        
+        
+
         
     </Grid>
 </Window>
