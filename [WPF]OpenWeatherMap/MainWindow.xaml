@@ -5,20 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_WPF_OpenWeatherMap"
         mc:Ignorable="d"
-        Title="Weather Application" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Weather Application" Height="450" Width="800" WindowStartupLocation="CenterScreen" Background="#FFA0B9D3">
     <Grid>
         <!-- Definiranje vrstic -->
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
         <!-- Input/Search -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <ComboBox x:Name="inputField" Width="100" Height="30"></ComboBox>
-            <Button x:Name="btnSearch" Width="30" Height="30">O</Button>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="2">
+            <ComboBox VerticalContentAlignment="Center" x:Name="inputField" Width="100" Height="30" IsEditable="True" SelectedIndex="0">
+                <ComboBoxItem Name="cbi1">Kranj</ComboBoxItem>
+                <ComboBoxItem Name="cbi2">Zelezniki</ComboBoxItem>
+                <ComboBoxItem Name="cbi3">Ljubljana</ComboBoxItem>
+            </ComboBox>
+            <Button x:Name="btnSearch" Width="30" Height="30" Click="btnSearch_Click" RenderTransformOrigin="-3.812,6.873">O</Button>
         </StackPanel>
-        <Label x:Name="labelTest">Test</Label>
-
+        
+        <Label x:Name="labelTest" Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 10">Podatki o vremenu:</Label>
+        
+        <!-- Tip vremena -->
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <Image x:Name="weatherIcon" Grid.Row="1" Width="100" Height="100" Source="http://openweathermap.org/img/wn/10d@2x.png"/>
+            <Label x:Name="weatherDescription" HorizontalContentAlignment="Center">lmao</Label>
+        </StackPanel>
+        
+        
+        <!-- Temperatura -->
+        <StackPanel Grid.Column="2" Grid.Row="2">
+            <Label HorizontalContentAlignment="Center">Temperatura</Label>
+            <Label x:Name="temperatureLabel" HorizontalContentAlignment="Center" FontSize="50">0 c</Label>
+        </StackPanel>
 
     </Grid>
 </Window>
