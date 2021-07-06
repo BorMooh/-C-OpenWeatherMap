@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_WPF_OpenWeatherMap"
         mc:Ignorable="d"
-        Loaded="Window_Loaded"
         Title="Weather Application" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- Definiranje vrstic -->
@@ -19,8 +18,7 @@
             <Button x:Name="btnSearch" Width="30" Height="30">O</Button>
         </StackPanel>
         <Label x:Name="labelTest">Test</Label>
-        
 
-        
+
     </Grid>
 </Window>
