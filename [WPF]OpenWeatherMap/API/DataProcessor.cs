@@ -11,18 +11,18 @@ namespace _WPF_OpenWeatherMap
     public class DataProcessor
     {
         //Metoda, s katero pridobimo podatke. Metoda sprejme mesto, default vrednost je pa Železniki. 
-        public static async Task<WeatherModel> LoadData(string city = "Zelezniki")
+        public static async Task<WeatherModel> LoadData()
         {
-            string url = $"http://api.openweathermap.org/data/2.5/weather?q={city}&appid=16f364f0a3b530faec39488f8a34aab3";
+            string url = $"http://api.openweathermap.org/data/2.5/weather?q=Zelezniki&appid=16f364f0a3b530faec39488f8a34aab3";
 
 
             using(HttpResponseMessage response = await APIHelper.APIClient.GetAsync(url))
             {
                 if(response.IsSuccessStatusCode)
                 {
-                    WeatherModel weather = await response.Content.ReadAsAsync<WeatherModel>();
+                    WeatherResultModel result = await response.Content.ReadAsAsync<WeatherResultModel>();
 
-                    return weather;
+                    return result.main;
                 }
                 else
                 {

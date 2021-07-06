@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace _WPF_OpenWeatherMap.Model
 {
-    public class WeatherModel
+    public class WeatherResultModel
     {
-        public string Description { get; set; }
-
-
+        public WeatherModel main { get; set; }
     }
-
 }

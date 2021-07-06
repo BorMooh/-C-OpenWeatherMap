@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using _WPF_OpenWeatherMap.Model;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
 
 namespace _WPF_OpenWeatherMap
 {
@@ -25,8 +27,22 @@ namespace _WPF_OpenWeatherMap
         public MainWindow()
         {
             InitializeComponent();
-
             APIHelper.InitializeClient();
+        }
+
+        private async Task LoadData(string city = "Zelezniki")
+        {
+            var mesto = await DataProcessor.LoadData();
+
+
+
+            //var uriSource = new Uri(mesto.Name, UriKind.Absolute);
+            //labelTest.Content = mesto.
+        }
+
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            await LoadData();
         }
     }
 }
