@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:_WPF_OpenWeatherMap"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!-- Stil za Border - vsak blok za podatke je v svojem borderju-->
+        <Style TargetType="Border" x:Key="sisa">
+            <Setter Property="CornerRadius" Value="40" />
+            <Setter Property="Background" Value="yellow" />
+        </Style>
+
+
     </Application.Resources>
 </Application>

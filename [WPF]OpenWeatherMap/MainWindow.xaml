@@ -20,6 +20,8 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
+        
+        
         <!-- Input/Search -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="2">
             <ComboBox VerticalContentAlignment="Center" x:Name="inputField" Width="100" Height="30" IsEditable="True" SelectedIndex="0">
@@ -33,17 +35,21 @@
         <Label x:Name="labelTest" Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 10">Podatki o vremenu:</Label>
         
         <!-- Tip vremena -->
-        <StackPanel Grid.Column="1" Grid.Row="2">
-            <Image x:Name="weatherIcon" Grid.Row="1" Width="100" Height="100" Source="http://openweathermap.org/img/wn/10d@2x.png"/>
-            <Label x:Name="weatherDescription" HorizontalContentAlignment="Center">lmao</Label>
-        </StackPanel>
-        
-        
-        <!-- Temperatura -->
-        <StackPanel Grid.Column="2" Grid.Row="2">
-            <Label HorizontalContentAlignment="Center">Temperatura</Label>
-            <Label x:Name="temperatureLabel" HorizontalContentAlignment="Center" FontSize="50">0 c</Label>
-        </StackPanel>
+        <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource sisa}">
+            <StackPanel>
+                <Image x:Name="weatherIcon" Grid.Row="1" Width="100" Height="100" Source="http://openweathermap.org/img/wn/10d@2x.png"/>
+                <Label x:Name="weatherDescription" HorizontalContentAlignment="Center">rain</Label>
+            </StackPanel>
+        </Border>
 
+        <!-- Temperatura -->
+        <Border Grid.Column="2" Grid.Row="2" Style="{StaticResource sisa}">
+            <StackPanel>
+                <Label HorizontalContentAlignment="Center">Temperatura</Label>
+                <Label x:Name="temperatureLabel" HorizontalContentAlignment="Center" FontSize="50">0°c</Label>
+            </StackPanel>
+        </Border>
+        
+        
     </Grid>
 </Window>

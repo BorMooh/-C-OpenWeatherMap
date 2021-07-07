@@ -18,3 +18,4 @@ C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\bin\Debug
 C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\bin\Debug\Newtonsoft.Json.xml
 C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\[WPF]OpenWeatherMap.csproj.CopyComplete
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\App.baml

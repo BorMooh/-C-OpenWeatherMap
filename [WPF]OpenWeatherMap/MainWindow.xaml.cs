@@ -27,6 +27,7 @@ namespace _WPF_OpenWeatherMap
     ///     CITY LIST - DA IMAMO VSA MESTA NOTRI V COMBOBOXU
     ///     SLIKE SO LOWRES???
     ///     VEČ POLJ
+    ///     FAVOURITES - SHRANJEVANJE MEST 
     /// </summary>
     /// 
 
@@ -81,7 +82,7 @@ namespace _WPF_OpenWeatherMap
 
 
             //Temperatura
-            temperatureLabel.Content = Math.Floor(podatki.main.temp - 273.15) + "c";
+            temperatureLabel.Content = Math.Floor(podatki.main.temp - 273.15) + "°c";
         }
         #endregion
     }
