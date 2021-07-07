@@ -28,10 +28,14 @@ namespace _WPF_OpenWeatherMap
     ///     SLIKE SO LOWRES???
     ///     VEČ POLJ
     ///     FAVOURITES - SHRANJEVANJE MEST 
+    ///     ODPRE DOLOČENO MESTO TUDI Z GOOGLE MAPSOV - NuGet?
+    ///     5 DAY napoved? 
+    ///     ANG/SLO
     /// </summary>
     /// 
 
-    //API: `http://api.openweathermap.org/data/2.5/weather?q=zelezniki&appid=16f364f0a3b530faec39488f8a34aab3`;
+    //API ZA 5 DNI: http://api.openweathermap.org/data/2.5/forecast?q=kranj&appid=16f364f0a3b530faec39488f8a34aab3
+    //API: http://api.openweathermap.org/data/2.5/weather?q=zelezniki&appid=16f364f0a3b530faec39488f8a34aab3;
     //ikona: http://openweathermap.org/img/wn/10d@2x.png
     #endregion
 
@@ -68,8 +72,9 @@ namespace _WPF_OpenWeatherMap
         private void InsertData()
         {
             //Testno ime
-            labelTest.Content = podatki.name;
+            labelMesto.Content = "Prikaz podaktov za: " + podatki.name;
 
+            #region Vreme
             //Za dodajanje slike
             Uri weatherUri = new Uri(DataProcessor.GetIcon(podatki.weather[0].icon.ToString()), UriKind.Absolute);
             BitmapImage bmi = new BitmapImage();
@@ -79,10 +84,26 @@ namespace _WPF_OpenWeatherMap
             weatherIcon.Source = bmi;
 
             weatherDescription.Content = podatki.weather[0].description;
-
-
+            #endregion
+            #region Temperatura
             //Temperatura
             temperatureLabel.Content = Math.Floor(podatki.main.temp - 273.15) + "°c";
+
+            #endregion Temperatura
+            #region Veter
+            windDegrees.Content = "Hitrost: "+ podatki.wind.speed + "km/h";
+            windGust.Content = "Sunek: " + podatki.wind.gust + "km/h";
+            windDegrees.Content = "Smer: " + podatki.wind.deg + "°";
+            #endregion
+            #region Vlaznost
+            labelVlaznost.Content = podatki.main.humidity;
+            #endregion
+            #region Latitude/Longitude
+            labelLongitude.Content = podatki.coord.lon;
+            labelLatitude.Content = podatki.coord.lat;
+
+            labelCoords.Content = DataProcessor.GetLink(podatki.coord.lat, podatki.coord.lon);
+            #endregion
         }
         #endregion
     }

@@ -47,6 +47,12 @@ namespace _WPF_OpenWeatherMap
 
             return fullpath;
         }
+
+        //Metoda za pridobivanje Google Maps linka iz latitude in longitude
+        public static string GetLink(double lat, double lon)
+        {
+            return $"https://www.google.com/maps/place/{lat},{lon}";
+        }
     }
 
 

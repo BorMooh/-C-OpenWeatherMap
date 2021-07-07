@@ -5,11 +5,16 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <!-- Stil za Border - vsak blok za podatke je v svojem borderju-->
-        <Style TargetType="Border" x:Key="sisa">
-            <Setter Property="CornerRadius" Value="40" />
-            <Setter Property="Background" Value="yellow" />
+        <Style TargetType="Border" x:Key="borderItems">
+            <Setter Property="CornerRadius" Value="20" />
+            <Setter Property="Background" Value="PapayaWhip" />
         </Style>
-
+        
+        <!-- Stil za naslov gradnika - Veter, Vreme, Temperatura  -->
+        <Style TargetType="Label" x:Key="labelNaslov">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="15" />
+        </Style>
 
     </Application.Resources>
 </Application>
