@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_WPF_OpenWeatherMap"
         mc:Ignorable="d"
-        Title="Weather Application" Height="450" Width="800" WindowStartupLocation="CenterScreen" Background="#FFA0B9D3">
+        Title="Weather Application" Height="450" Width="800" WindowStartupLocation="CenterScreen" Background="#FF9FBCD1">
     <Grid>
         <!-- Definiranje vrstic -->
         <Grid.RowDefinitions>
@@ -23,8 +23,8 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
-        
-        
+
+
         <!-- Input/Search -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="2" Grid.ColumnSpan="2">
             <ComboBox VerticalContentAlignment="Center" x:Name="inputField" Width="100" Height="30" IsEditable="True" SelectedIndex="0">
@@ -32,15 +32,15 @@
                 <ComboBoxItem Name="cbi2">Zelezniki</ComboBoxItem>
                 <ComboBoxItem Name="cbi3">Ljubljana</ComboBoxItem>
             </ComboBox>
-            <Button x:Name="btnSearch" Width="30" Height="30" Click="btnSearch_Click" RenderTransformOrigin="-3.812,6.873">O</Button>
+            <Button x:Name="btnSearch" Width="30" Height="30" Click="btnSearch_Click" RenderTransformOrigin="-3.812,6.873" Foreground="Black">Q</Button>
         </StackPanel>
-        
+
         <Label Grid.ColumnSpan="2" x:Name="labelMesto" Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 10">Podatki o vremenu:</Label>
-        
+
         <!-- Tip vremena -->
         <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource borderItems}">
             <StackPanel>
-                <Label HorizontalContentAlignment="Center" Style="{StaticResource labelNaslov}"> Vreme </Label>
+                <Label HorizontalContentAlignment="Center" Style="{StaticResource labelNaslov}">Vreme</Label>
                 <Image x:Name="weatherIcon" Grid.Row="1" Width="100" Height="100" Source="http://openweathermap.org/img/wn/10d@2x.png"/>
                 <Label x:Name="weatherDescription" HorizontalContentAlignment="Center">rain</Label>
             </StackPanel>
@@ -63,7 +63,7 @@
                 <Label x:Name="windGust">Sunek: 1.11</Label>
             </StackPanel>
         </Border>
-        
+
         <!-- Vlažnost -->
         <Border Margin="10 0 0 0" Grid.Column="4" Grid.Row="2" Style="{StaticResource borderItems}">
             <StackPanel>
@@ -71,15 +71,18 @@
                 <Label x:Name="labelVlaznost" HorizontalContentAlignment="Center">39</Label>
             </StackPanel>
         </Border>
-        
-        <!-- Latitude & Longitude-->
+
+        <!-- Latitude & Longitude + Location -->
         <Label x:Name="labelCoords" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Style="{StaticResource labelNaslov}" >Coordinate:</Label>
         <StackPanel Orientation="Horizontal"  Margin="0 30 0 0" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center">
             <Label x:Name="labelLatitude" >latitude</Label>
             <Label x:Name="labelLongitude">longitude</Label>
 
         </StackPanel>
-        <Button Width="90" Height="30" x:Name="labelGoogleMaps" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" HorizontalContentAlignment="Center">Open location</Button>
+        <Button Click="labelGoogleMaps_Click" Width="90" Height="30" x:Name="labelGoogleMaps" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" HorizontalContentAlignment="Center">Open location</Button>
 
+        <!-- Favourites -->
+        <Button Click="shranjeniButton_Click" x:Name="shranjeniButton" Content="Shranjeni" Grid.Column="4" Grid.Row="0" Width="80" Height="30" HorizontalAlignment="Right"/>
+        
     </Grid>
 </Window>

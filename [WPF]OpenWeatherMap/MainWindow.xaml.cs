@@ -23,7 +23,7 @@ namespace _WPF_OpenWeatherMap
     ///  TODO
     ///     UTF-8 PODPORA ZA ŠUMNIKE
     ///     OPTIMIZACIJA KODE ZA DODAJANJE SLIKE/IKONE
-    ///     COMBOBOX TEXT PLACEMENT - TEKST NI PORAVNAN
+    ///     COMBOBOX TEXT PLACEMENT - TEKST NI PORAVNAN - OK
     ///     CITY LIST - DA IMAMO VSA MESTA NOTRI V COMBOBOXU
     ///     SLIKE SO LOWRES???
     ///     VEČ POLJ
@@ -46,9 +46,13 @@ namespace _WPF_OpenWeatherMap
         {
             InitializeComponent();
         }
-
-        //Ob kliku na gumb "Search"
+        //javni model WeatherModel, s katerim pridobimo podatke
+        //Podatki se notri vnesejo ob kliku na "Search" gumb
         static WeatherModel.Root podatki;
+
+
+        #region Search gumb
+        //Ob kliku na gumb "Search"
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             //Podatke probamo pridobiti - če to ne deluje, nam program izpiše da je prišlo do napake
@@ -64,7 +68,7 @@ namespace _WPF_OpenWeatherMap
                 MessageBox.Show("Prišlo je do napake!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
+        #endregion
         #region Vnos podatkov v polja
         /// <summary>
         /// Metoda s katero se vsi podatki vnesejo v pravilna polja
@@ -104,6 +108,25 @@ namespace _WPF_OpenWeatherMap
 
             labelCoords.Content = DataProcessor.GetLink(podatki.coord.lat, podatki.coord.lon);
             #endregion
+        }
+        #endregion
+        #region Get Location gumb
+        /// <summary>
+        /// Ob kliku na gumb "Get Location" se izvede ta metoda.
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void labelGoogleMaps_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Work in Progress", "WIP", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        #endregion
+        #region Shranjene lokacije gumb
+        private void shranjeniButton_Click(object sender, RoutedEventArgs e)
+        {
+            SavedLocations.SaveCity(podatki.name);
         }
         #endregion
     }
