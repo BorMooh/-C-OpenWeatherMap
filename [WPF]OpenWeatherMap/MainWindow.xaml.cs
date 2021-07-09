@@ -58,7 +58,7 @@ namespace _WPF_OpenWeatherMap
                 InsertData();
 
                 //TEST 
-                shranjeniButton.Content = SavedLocations.SpremeniNapis(podatki.name);
+                shranjeniButton.ontent = SavedLocations.SpremeniNapis(podatki.name);
             }
             catch
             {
