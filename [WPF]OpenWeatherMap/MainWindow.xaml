@@ -84,5 +84,7 @@
         <!-- Favourites -->
         <Button Click="shranjeniButton_Click" x:Name="shranjeniButton" Content="Shranjeni" Grid.Column="4" Grid.Row="0" Width="80" Height="30" HorizontalAlignment="Right"/>
         
+        <!-- 5 Dnevna napoved gumb -->
+        <Button Click="tedenskaButton_Click" x:Name="tedenskaButton" Margin="0 100 0 0" Width="130" Height="40" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" HorizontalContentAlignment="Center">5 dnevna napoved</Button>
     </Grid>
 </Window>

@@ -1,20 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using _WPF_OpenWeatherMap.Model;
-using Newtonsoft.Json;
 
 namespace _WPF_OpenWeatherMap
 {
@@ -27,7 +20,7 @@ namespace _WPF_OpenWeatherMap
     ///     CITY LIST - DA IMAMO VSA MESTA NOTRI V COMBOBOXU
     ///     SLIKE SO LOWRES???
     ///     VEČ POLJ
-    ///     FAVOURITES - SHRANJEVANJE MEST 
+    ///     FAVOURITES - SHRANJEVANJE MEST + ODSTRANJEVANJE SHRANJENIH MEST
     ///     ODPRE DOLOČENO MESTO TUDI Z GOOGLE MAPSOV - NuGet?
     ///     5 DAY napoved? 
     ///     ANG/SLO
@@ -59,13 +52,17 @@ namespace _WPF_OpenWeatherMap
             try
             {
                 podatki = new WeatherModel.Root();
-                podatki = DataProcessor.GetWeather(inputField.Text); // DODAJ PARAMETER - MESTO
+                podatki = DataProcessor.GetWeather(inputField.Text); 
 
+                //Metoda, s katero se podatki vnesejo v polja
                 InsertData();
+
+                //TEST 
+                shranjeniButton.Content = SavedLocations.SpremeniNapis(podatki.name);
             }
             catch
             {
-                MessageBox.Show("Prišlo je do napake!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Mesto ne obstaja!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         #endregion
@@ -127,6 +124,12 @@ namespace _WPF_OpenWeatherMap
         private void shranjeniButton_Click(object sender, RoutedEventArgs e)
         {
             SavedLocations.SaveCity(podatki.name);
+        }
+        #endregion
+        #region 5 dnevna napoved
+        private void tedenskaButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("WIP");
         }
         #endregion
     }
