@@ -182,7 +182,7 @@ namespace _WPF_OpenWeatherMap
         #endregion
         #region Pridobivanje vseh podatkov iz tekst datoteke za ComboBox - PridobiMesto
         //Metoda preveri če je mesto že shranjeno v comboboxu. Če NI shranjeno v CB-ju, ga shrani notri.
-        public static List<string> PridobiMesto()
+        public static List<string> PridobiMesta()
         {
             //Inicializacija Lista za return in vrstice 
             List<string> retLista = new List<string>();

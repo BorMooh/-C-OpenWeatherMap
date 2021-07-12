@@ -9,6 +9,13 @@ namespace _WPF_OpenWeatherMap.FiveDayForecast
 {
     public class DataProcessorFiveDays
     {
+
+        #region Metoda za pridobivanje podatkov - GetWeatherFiveDay
+        /// <summary>
+        /// Metoda za pridobivanje podatkov iz API-ja za določeno mesto - to mesto dobimo kot parameter
+        /// </summary>
+        /// <param name="city"></param>
+        /// <returns></returns>
         public static WeatherModelFiveDay.Root GetWeatherFiveDay(string city = "Zelezniki")
         {
             //Z web-clientom pridobimo vse podatke iz določenega URL naslova, ki nam vrne JSON izpis. 
@@ -29,8 +36,35 @@ namespace _WPF_OpenWeatherMap.FiveDayForecast
                 //Metoda vrne tip WeatherModel z vsemi podatki
                 return output;
             }
-
-
         }
+        #endregion
+        #region Pridobivanje podatkov za vsak dan ob 12ih - 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dan"></param>
+        /// <returns>
+        /// OUTPUT MORA BITI INT - ŠTEVILKA List[i], ki je za ta DAN
+        /// </returns>
+        public static int PridobiPodatke(WeatherModelFiveDay.Root podatki, string dan)
+        {
+            string output = "";
+
+            //Vsakem elementu preverimo uro, ki mora biti 12:00:00 - ker bo program prikazoval vreme za ob 12ih 
+            for(int i = 0; i < podatki.list.Count; i++)
+            {
+                if(podatki.list[i].dt_txt.Remove(0,11) == "12:00:00")
+                {
+                    output += podatki.list[i].dt_txt + ", ";
+                }
+
+            }
+
+
+
+            return 1;
+        }
+
+        #endregion
     }
 }

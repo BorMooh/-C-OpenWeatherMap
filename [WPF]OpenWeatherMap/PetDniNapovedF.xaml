@@ -35,9 +35,11 @@
             <StackPanel>
                 <Label x:Name="labelDanes" HorizontalContentAlignment="Center" Style="{StaticResource labelNaslov}">DANES</Label>
                 <Image Grid.Row="1" Width="100" Height="100" Source="http://openweathermap.org/img/wn/10d@2x.png"/>
-                <Label HorizontalContentAlignment="Center">rain</Label>
+                <Label x:Name="danesVreme" HorizontalContentAlignment="Center">rain</Label>
                 <Separator />
-                <Label x:Name="danesTemp" HorizontalContentAlignment="Center">0c</Label>
+                <Label x:Name="danesTemp" FontSize="19" HorizontalContentAlignment="Center">0c</Label>
+                <Separator />
+                <Label x:Name="danesWind" FontSize="19" HorizontalContentAlignment="Center">17km/h</Label>
             </StackPanel>
         </Border>
         
@@ -45,7 +47,7 @@
         <!-- Jutri -->
         <Border Margin="10 0 0 0" Grid.Column="2" Grid.Row="1" Style="{StaticResource borderItems}">
             <StackPanel>
-                <Label HorizontalContentAlignment="Center" Style="{StaticResource labelNaslov}">JUTRI</Label>
+                <Label  HorizontalContentAlignment="Center" Style="{StaticResource labelNaslov}">JUTRI</Label>
                 <Image Width="100" Height="100" Source="http://openweathermap.org/img/wn/10d@2x.png"/>
                 <Label HorizontalContentAlignment="Center">rain</Label>
             </StackPanel>

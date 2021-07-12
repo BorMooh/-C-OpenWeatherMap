@@ -44,15 +44,21 @@ namespace _WPF_OpenWeatherMap
         public MainWindow()
         {
             InitializeComponent();
-
+            tedenskaButton.IsEnabled = false;
             //Nastavimo ItemSource COMBOBOXA kot beležko shranjenih mest
-            //inputField.ItemsSource = SavedLocations.PridobiMesto();
         }
         //javni model WeatherModel, v katerem so podatki 
         //Podatki se notri vnesejo ob kliku na "Search" gumb
         public static WeatherModel.Root podatki;
 
 
+
+        #region Window Load
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            inputField.ItemsSource = SavedLocations.PridobiMesta();
+        }
+        #endregion
         #region Search gumb
         //Ob kliku na gumb "Search"
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -68,10 +74,14 @@ namespace _WPF_OpenWeatherMap
 
                 //Spremenimo napis gumba z metodo - gumb ima 2 možnosti: Shrani, Izbriši
                 shranjeniButton.Content = SavedLocations.SpremeniNapis(podatki.name);
+
+                //Nastavimo gumb za 5 dnevno napoved na VISIBLE, tako da ga uporanbik lahko pritisne
+                tedenskaButton.IsEnabled = true;
             }
             catch
             {
                 MessageBox.Show("Prišlo je do napake!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                tedenskaButton.IsEnabled = false;
             }
         }
         #endregion
@@ -136,15 +146,21 @@ namespace _WPF_OpenWeatherMap
             SavedLocations.SaveCity(podatki.name);
             
             //Metodo je potrebno ponovno poklicati da se novi podatki dodajo v ComboBox
-            inputField.ItemsSource = SavedLocations.PridobiMesto();
+            inputField.ItemsSource = SavedLocations.PridobiMesta();
         }
         #endregion
         #region 5 dnevna napoved
+        /// <summary>
+        /// Klik na gumb za 5 dnevno napoved
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tedenskaButton_Click(object sender, RoutedEventArgs e)
         {
             PetDniNapovedF noviForm = new PetDniNapovedF();
             noviForm.Show();
         }
         #endregion
+
     }
 }

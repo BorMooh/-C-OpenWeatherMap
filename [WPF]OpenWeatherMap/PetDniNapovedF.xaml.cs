@@ -29,20 +29,35 @@ namespace _WPF_OpenWeatherMap
     /// </summary>
     public partial class PetDniNapovedF : Window
     {
+        //Javne spremenljivke
+        public static WeatherModelFiveDay.Root podatkiTeden;
+
+
         public PetDniNapovedF()
         {
             InitializeComponent();
+            
+            try
+            {
+                //Prenos podatkov iz API-ja
+                podatkiTeden = DataProcessorFiveDays.GetWeatherFiveDay(MainWindow.podatki.name);
+            }
+            catch
+            {
+                MessageBox.Show("Podatki niso prišli iz API");
+            }
         }
+
 
         #region Window_Load metoda
         //Vsi podatki se avtomatsko vnesejo v form ko se ta naloži.
         //Ker dobimo ime mesta iz prvotnega forma ni potreben noben input za mesto. 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(MainWindow.podatki.name);
-            DataProcessorFiveDays.GetWeatherFiveDay(MainWindow.podatki.name); // POTREBNA VALIDACIJA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            DataProcessorFiveDays.PridobiPodatke(podatkiTeden);
         }
-
         #endregion
+
+
     }
 }
