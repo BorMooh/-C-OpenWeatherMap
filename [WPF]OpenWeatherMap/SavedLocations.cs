@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
 using System.Windows;
 
@@ -8,6 +7,7 @@ namespace _WPF_OpenWeatherMap
 {
     public class SavedLocations
     {
+        //Javne spremenljivke 
         static string vrstica;
         static string vrsticaPreveri;
         static bool mestoObstaja = true;
@@ -76,7 +76,7 @@ namespace _WPF_OpenWeatherMap
             }
         }
         #endregion
-        #region Ustvari datoteko metoda
+        #region Ustvari datoteko metoda - UstvariDatoteko
         /// <summary>
         /// Metoda s katero se ustvari datoteka 'shranjeni.txt' v kateri so vstavljene shranjene lokacije 
         /// </summary>
@@ -96,7 +96,7 @@ namespace _WPF_OpenWeatherMap
 
         }
         #endregion
-        #region Metoda za spreminjanje napisa na gumbu "Shranjeni/Izbrisi"
+        #region Metoda za spreminjanje napisa na gumbu "Shranjeni/Izbrisi" - SpremeniNapis
         /// <summary>
         /// PREVERITI MORAMO ČE MESTO ŽE OBSTAJA - ČE OBSTAJA V DATOTEKI SE NAPIS NA GUMBU SPREMENI
         /// NAPIS SE TUDI MORA SPREMENITI NAZAJ KO IMAMO MESTO, KI ŠE NI DODANO
@@ -110,27 +110,30 @@ namespace _WPF_OpenWeatherMap
             //List, v katerega bomo shranili vsa mesta
             List<string> shranjenaMesta = new List<string>();
 
-            //StreamReader
-            using (StreamReader beri = new StreamReader("shranjeni.txt"))
+            //Če datoteka obstaja
+            if (File.Exists("shranjeni.txt"))
             {
-
-                while ((vrsticaPreveri = beri.ReadLine()) != null)
+                //StreamReader
+                using (StreamReader beri = new StreamReader("shranjeni.txt"))
                 {
-                    //Če se vnos NE ujema z shranjenimi mesti - pomeni da mesto nismo shranili ŠE
-                    if(!vrsticaPreveri.Equals(mesto))
+                    while ((vrsticaPreveri = beri.ReadLine()) != null)
                     {
-                        shranjenaMesta.Add(vrsticaPreveri);
+                        //Če se vnos NE ujema z shranjenimi mesti - pomeni da mesto nismo shranili ŠE
+                        if (!vrsticaPreveri.Equals(mesto))
+                            shranjenaMesta.Add(vrsticaPreveri);
+                        else
+                            return "Izbrisi";
                     }
-                    else
-                    {
-                        return "Izbrisi";
-                    }
-
                 }
-
+                return "Shrani";
+            }
+            else
+            {
+                //Drugače pa ustvarimo datoteko in notri zapišemo 
+                UstvariDatoteko(null);
+                return "Shrani";
             }
 
-            return "Shrani";
         }
         #endregion
         #region Vnos vseh priljubljenih v beležko
@@ -147,10 +150,15 @@ namespace _WPF_OpenWeatherMap
                 {
                     if(!novaVrstica.Equals(izbrisanoMesto))
                     {
-                        noviPodatki.dd(novaVrstica);
+                        noviPodatki.Add(novaVrstica);
+                        
                     }
                 }
             }
+
+            //Datoteka se izbriše, tako da se potem na novo ustvari in vnese ponovno podatke - VAŽNO JE DA SE CONTENT DATOTEKE POBRIŠE 
+            File.Delete("shranjeni.txt");
+
 
             //Pisanje Lista v obstoječo datoteko 
             StreamWriter pisi = File.AppendText("shranjeni.txt");
@@ -161,6 +169,29 @@ namespace _WPF_OpenWeatherMap
             pisi.Close();
 
         }
+        #endregion
+        #region Pridobivanje vseh podatkov iz tekst datoteke za ComboBox - PridobiMesto
+        //Metoda preveri če je mesto že shranjeno v comboboxu. Če NI shranjeno v CB-ju, ga shrani notri.
+        public static List<string> PridobiMesto()
+        {
+            //Inicializacija Lista za return in vrstice 
+            List<string> retLista = new List<string>();
+            string vrsta = "";
+
+            //Za prevajanje skozi celo tekst datoteko
+            using (StreamReader beri = new StreamReader("shranjeni.txt"))
+            {
+                while ((vrsta = beri.ReadLine()) != null)
+                {
+                    //Vsak napis v txt datoteki shranimo v Listo
+                    retLista.Add(vrsta);
+                }
+            }
+
+            //Listo vrnemo
+            return retLista;
+        }
+
         #endregion
     }
 }

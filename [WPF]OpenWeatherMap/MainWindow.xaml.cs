@@ -19,10 +19,10 @@ namespace _WPF_OpenWeatherMap
     ///     COMBOBOX TEXT PLACEMENT - TEKST NI PORAVNAN - OK
     ///     CITY LIST - DA IMAMO VSA MESTA NOTRI V COMBOBOXU
     ///     SLIKE SO LOWRES???
-    ///     VEČ POLJ
-    ///     FAVOURITES - SHRANJEVANJE MEST + ODSTRANJEVANJE SHRANJENIH MEST
+    ///     VEČ POLJ - OK 
+    ///     FAVOURITES - SHRANJEVANJE MEST + ODSTRANJEVANJE SHRANJENIH MEST - OK 
     ///     ODPRE DOLOČENO MESTO TUDI Z GOOGLE MAPSOV - NuGet?
-    ///     5 DAY napoved? 
+    ///     5 DAY napoved - Nov FORM
     ///     ANG/SLO
     /// </summary>
     /// 
@@ -39,7 +39,7 @@ namespace _WPF_OpenWeatherMap
         {
             InitializeComponent();
         }
-        //javni model WeatherModel, s katerim pridobimo podatke
+        //javni model WeatherModel, v katerem so podatki 
         //Podatki se notri vnesejo ob kliku na "Search" gumb
         static WeatherModel.Root podatki;
 
@@ -57,12 +57,12 @@ namespace _WPF_OpenWeatherMap
                 //Metoda, s katero se podatki vnesejo v polja
                 InsertData();
 
-                //TEST 
-                shranjeniButton.ontent = SavedLocations.SpremeniNapis(podatki.name);
+                //Spremenimo napis gumba z metodo - gumb ima 2 možnosti: Shrani, Izbriši
+                shranjeniButton.Content = SavedLocations.SpremeniNapis(podatki.name);
             }
             catch
             {
-                MessageBox.Show("Mesto ne obstaja!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Prišlo je do napake!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         #endregion
@@ -123,7 +123,11 @@ namespace _WPF_OpenWeatherMap
         #region Shranjene lokacije gumb
         private void shranjeniButton_Click(object sender, RoutedEventArgs e)
         {
+            //Shranimo mesto v beležko 
             SavedLocations.SaveCity(podatki.name);
+
+            //Nastavimo ItemSource COMBOBOXA kot beležko shranjenih mest
+            inputField.ItemsSource = SavedLocations.PridobiMesto();
         }
         #endregion
         #region 5 dnevna napoved
