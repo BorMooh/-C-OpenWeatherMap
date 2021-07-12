@@ -9,6 +9,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using _WPF_OpenWeatherMap.Model;
 
+
 namespace _WPF_OpenWeatherMap
 {
     #region README
@@ -33,6 +34,9 @@ namespace _WPF_OpenWeatherMap
     //API: http://api.openweathermap.org/data/2.5/weather?q=zelezniki&appid=16f364f0a3b530faec39488f8a34aab3;
     //ikona: http://openweathermap.org/img/wn/10d@2x.png
     #endregion
+
+    
+
 
     public partial class MainWindow : Window
     {
@@ -138,7 +142,8 @@ namespace _WPF_OpenWeatherMap
         #region 5 dnevna napoved
         private void tedenskaButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("WIP");
+            PetDniNapovedF noviForm = new PetDniNapovedF();
+            noviForm.Show();
         }
         #endregion
     }

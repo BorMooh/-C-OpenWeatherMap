@@ -19,3 +19,5 @@ C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\bin\Debug
 C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\[WPF]OpenWeatherMap.csproj.CopyComplete
 C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\App.baml
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\PetDniNapovedF.g.cs
+C:\Users\MohoPoho\source\repos\[WPF]OpenWeatherMap\[WPF]OpenWeatherMap\obj\Debug\PetDniNapovedF.baml

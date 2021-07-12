@@ -61,6 +61,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FiveDayForecast\DataProcessorFiveDays.cs" />
+    <Compile Include="FiveDayForecast\WeatherModelFiveDay.cs" />
+    <Compile Include="PetDniNapovedF.xaml.cs">
+      <DependentUpon>PetDniNapovedF.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SavedLocations.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -75,6 +80,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PetDniNapovedF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\WeatherModel.cs" />
@@ -107,5 +116,6 @@
   <ItemGroup>
     <Resource Include="Images\search.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

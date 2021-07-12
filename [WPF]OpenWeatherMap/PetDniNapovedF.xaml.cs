@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using _WPF_OpenWeatherMap.FiveDayForecast;
 
 namespace _WPF_OpenWeatherMap
 {
@@ -22,6 +23,11 @@ namespace _WPF_OpenWeatherMap
         public PetDniNapovedF()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataProcessorFiveDays.GetWeatherFiveDay();
         }
     }
 }
