@@ -27,8 +27,7 @@
 
         <!-- Input/Search -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="2" Grid.ColumnSpan="2">
-            <ComboBox VerticalContentAlignment="Center" x:Name="inputField" Width="100" Height="30" IsEditable="True" SelectedIndex="0">
-            </ComboBox>
+            <ComboBox VerticalContentAlignment="Center" x:Name="inputField" Width="100" Height="30" IsEditable="True" SelectedIndex="0" />
             <Button x:Name="btnSearch" Width="30" Height="30" Click="btnSearch_Click" RenderTransformOrigin="-3.812,6.873" Foreground="Black">Q</Button>
         </StackPanel>
 

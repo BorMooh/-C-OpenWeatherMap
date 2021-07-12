@@ -51,7 +51,11 @@ namespace _WPF_OpenWeatherMap
         //Metoda za pridobivanje Google Maps linka iz latitude in longitude
         public static string GetLink(double lat, double lon)
         {
-            return $"https://www.google.com/maps/place/{lat},{lon}";
+            //Zamenjati je potrebno iz vejice v piko ker drugače Google Maps ne razume koordinat 
+            string latCorrect = Convert.ToString(lat).Replace(',', '.');
+            string lonCorrect = Convert.ToString(lon).Replace(',', '.');
+
+            return $"https://www.google.com/maps/place/{latCorrect} {lonCorrect}";
         }
     }
 

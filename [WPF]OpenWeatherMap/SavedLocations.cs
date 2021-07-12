@@ -10,7 +10,7 @@ namespace _WPF_OpenWeatherMap
         //Javne spremenljivke 
         static string vrstica;
         static string vrsticaPreveri;
-        static bool mestoObstaja = true;
+        static bool mestoObstaja = false;
 
         #region SaveCity metoda
         //Metoda, ki pridobi kot parameter ime mesta in ga shrani v beležko
@@ -47,6 +47,8 @@ namespace _WPF_OpenWeatherMap
                     beri.Close();
                 }
                 #endregion
+
+
                 #region Če smo našli mesto ali nismo našli mesto
                 //Če je mesto že shranjeno v datoteki - KLIK NA GUMB IZBRIŠI 
                 //PODATEK SE MORA IZBRISATI IZ BELEŽKE 
@@ -85,9 +87,17 @@ namespace _WPF_OpenWeatherMap
             //Poskusimo ustvariti datoteko in notri vpisati izbrano mesto
             try
             {
-                StreamWriter pisi = File.AppendText("shranjeni.txt");
-                pisi.WriteLine(mesto);
-                pisi.Close();
+                if(mesto == null)
+                {
+                    File.Create("shranjeni.txt");
+                }
+                else
+                {
+                    StreamWriter pisi = File.AppendText("shranjeni.txt");
+                    pisi.WriteLine(mesto);
+                    pisi.Close();
+                }
+
             }
             catch
             {
@@ -177,6 +187,7 @@ namespace _WPF_OpenWeatherMap
             //Inicializacija Lista za return in vrstice 
             List<string> retLista = new List<string>();
             string vrsta = "";
+
 
             //Za prevajanje skozi celo tekst datoteko
             using (StreamReader beri = new StreamReader("shranjeni.txt"))

@@ -17,13 +17,15 @@ namespace _WPF_OpenWeatherMap
     ///     UTF-8 PODPORA ZA ŠUMNIKE
     ///     OPTIMIZACIJA KODE ZA DODAJANJE SLIKE/IKONE
     ///     COMBOBOX TEXT PLACEMENT - TEKST NI PORAVNAN - OK
-    ///     CITY LIST - DA IMAMO VSA MESTA NOTRI V COMBOBOXU
+    ///     CITY LIST - DA IMAMO VSA MESTA NOTRI V COMBOBOXU - OK?
     ///     SLIKE SO LOWRES???
     ///     VEČ POLJ - OK 
     ///     FAVOURITES - SHRANJEVANJE MEST + ODSTRANJEVANJE SHRANJENIH MEST - OK 
     ///     ODPRE DOLOČENO MESTO TUDI Z GOOGLE MAPSOV - NuGet?
     ///     5 DAY napoved - Nov FORM
     ///     ANG/SLO
+    ///     
+    ///     GUMB SHRANI/IZBRIŠI SE MORA REFRESHATI OB VSAKEM KLIKU - TAKO DA JE NAPIS ZMERAJ PRAVILEN(potrebno je pritisniti na Search gumb da se refresha)
     /// </summary>
     /// 
 
@@ -38,6 +40,9 @@ namespace _WPF_OpenWeatherMap
         public MainWindow()
         {
             InitializeComponent();
+
+            //Nastavimo ItemSource COMBOBOXA kot beležko shranjenih mest
+            //inputField.ItemsSource = SavedLocations.PridobiMesto();
         }
         //javni model WeatherModel, v katerem so podatki 
         //Podatki se notri vnesejo ob kliku na "Search" gumb
@@ -116,7 +121,7 @@ namespace _WPF_OpenWeatherMap
         /// <param name="e"></param>
         private void labelGoogleMaps_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Work in Progress", "WIP", MessageBoxButton.OK, MessageBoxImage.Information);
+            System.Diagnostics.Process.Start(DataProcessor.GetLink(podatki.coord.lat, podatki.coord.lon));
         }
 
         #endregion
@@ -125,8 +130,8 @@ namespace _WPF_OpenWeatherMap
         {
             //Shranimo mesto v beležko 
             SavedLocations.SaveCity(podatki.name);
-
-            //Nastavimo ItemSource COMBOBOXA kot beležko shranjenih mest
+            
+            //Metodo je potrebno ponovno poklicati da se novi podatki dodajo v ComboBox
             inputField.ItemsSource = SavedLocations.PridobiMesto();
         }
         #endregion
