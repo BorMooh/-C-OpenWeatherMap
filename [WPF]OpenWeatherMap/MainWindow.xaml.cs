@@ -50,7 +50,7 @@ namespace _WPF_OpenWeatherMap
         }
         //javni model WeatherModel, v katerem so podatki 
         //Podatki se notri vnesejo ob kliku na "Search" gumb
-        static WeatherModel.Root podatki;
+        public static WeatherModel.Root podatki;
 
 
         #region Search gumb

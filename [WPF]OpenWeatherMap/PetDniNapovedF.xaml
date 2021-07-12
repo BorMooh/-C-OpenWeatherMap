@@ -6,8 +6,67 @@
         xmlns:local="clr-namespace:_WPF_OpenWeatherMap"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="Napoved za 5 dni" Height="450" Width="800">
+        Title="Napoved za 5 dni" Height="450" Width="800" WindowStartupLocation="CenterScreen" Background="#FF9FBCD1"> 
     <Grid>
+        <!-- Definiranje vrstic -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Naslov -->
+        <StackPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2">
+            <Label Margin="0 0 0 20" x:Name="petdniNaslov" HorizontalContentAlignment="Center">PRIKAZ PODATKOV</Label>
+        </StackPanel>
+
+
+        <!-- Danes -->
+        <Border Margin="10 0 0 0" Grid.Column="1" Grid.Row="1" Style="{StaticResource borderItems}">
+            <StackPanel>
+                <Label x:Name="labelDanes" HorizontalContentAlignment="Center" Style="{StaticResource labelNaslov}">DANES</Label>
+                <Image Grid.Row="1" Width="100" Height="100" Source="http://openweathermap.org/img/wn/10d@2x.png"/>
+                <Label HorizontalContentAlignment="Center">rain</Label>
+                <Separator />
+                <Label x:Name="danesTemp" HorizontalContentAlignment="Center">0c</Label>
+            </StackPanel>
+        </Border>
         
+        
+        <!-- Jutri -->
+        <Border Margin="10 0 0 0" Grid.Column="2" Grid.Row="1" Style="{StaticResource borderItems}">
+            <StackPanel>
+                <Label HorizontalContentAlignment="Center" Style="{StaticResource labelNaslov}">JUTRI</Label>
+                <Image Width="100" Height="100" Source="http://openweathermap.org/img/wn/10d@2x.png"/>
+                <Label HorizontalContentAlignment="Center">rain</Label>
+            </StackPanel>
+        </Border>
+        
+        <!-- Danes + 2 -->
+        <Border Margin="10 0 0 0" Grid.Column="3" Grid.Row="1" Style="{StaticResource borderItems}">
+            <StackPanel>
+                <Label HorizontalContentAlignment="Center" Style="{StaticResource labelNaslov}">DANES + 2</Label>
+                <Image Width="100" Height="100" Source="http://openweathermap.org/img/wn/10d@2x.png"/>
+                <Label HorizontalContentAlignment="Center">rain</Label>
+            </StackPanel>
+        </Border>
+
+        <!-- DANES + 3 -->
+        <Border Height="250" Margin="10 0 0 0" Grid.Column="4" Grid.Row="1" Style="{StaticResource borderItems}">
+            <StackPanel>
+                <Label HorizontalContentAlignment="Center" Style="{StaticResource labelNaslov}">DANES + 3</Label>
+                <Image Width="100" Height="100" Source="http://openweathermap.org/img/wn/10d@2x.png"/>
+                <Label HorizontalContentAlignment="Center">rain</Label>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
