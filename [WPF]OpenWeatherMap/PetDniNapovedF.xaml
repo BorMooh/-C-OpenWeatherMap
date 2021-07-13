@@ -34,7 +34,7 @@
         <Border Margin="10 0 0 0" Grid.Column="1" Grid.Row="1" Style="{StaticResource borderItems}">
             <StackPanel>
                 <Label x:Name="labelDanes" HorizontalContentAlignment="Center" Style="{StaticResource labelNaslov}">DANES</Label>
-                <Image Grid.Row="1" Width="100" Height="100" Source="http://openweathermap.org/img/wn/10d@2x.png"/>
+                <Image x:Name="danesIkona" Grid.Row="1" Width="100" Height="100" Source="http://openweathermap.org/img/wn/10d@2x.png"/>
                 <Label x:Name="danesVreme" HorizontalContentAlignment="Center">rain</Label>
                 <Separator />
                 <Label x:Name="danesTemp" FontSize="19" HorizontalContentAlignment="Center">0c</Label>

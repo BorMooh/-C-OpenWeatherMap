@@ -32,6 +32,9 @@ namespace _WPF_OpenWeatherMap
         //Javne spremenljivke
         public static WeatherModelFiveDay.Root podatkiTeden;
 
+        public static WeatherModelFiveDay.List podatkiDanes;
+        public static WeatherModelFiveDay.List podatkiJutri;
+
 
         public PetDniNapovedF()
         {
@@ -54,7 +57,21 @@ namespace _WPF_OpenWeatherMap
         //Ker dobimo ime mesta iz prvotnega forma ni potreben noben input za mesto. 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DataProcessorFiveDays.PridobiPodatke(podatkiTeden);
+            DataProcessorFiveDays.PridobiPodatke(podatkiTeden, 0);
+            podatkiDanes = DataProcessorFiveDays.PridobiPodatke(podatkiTeden, 0);
+            podatkiJutri = DataProcessorFiveDays.PridobiPodatke(podatkiTeden, 1);
+
+            danesTemp.Content = podatkiDanes.main.temp;
+            danesVreme.Content = podatkiDanes.weather[0].description; 
+
+            //SKRAJŠAJ KODO!!!
+            Uri weatherUri = new Uri(DataProcessor.GetIcon(podatkiDanes.weather[0].icon.ToString()), UriKind.Absolute);
+            BitmapImage bmi = new BitmapImage();
+            bmi.BeginInit();
+            bmi.UriSource = weatherUri;
+            bmi.EndInit();
+            danesIkona.Source = bmi;
+            ///
         }
         #endregion
 
