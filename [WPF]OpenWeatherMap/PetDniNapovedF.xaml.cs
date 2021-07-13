@@ -57,19 +57,32 @@ namespace _WPF_OpenWeatherMap
         //Ker dobimo ime mesta iz prvotnega forma ni potreben noben input za mesto. 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //Pridobivanje podatkov za vsak dan posebej
             DataProcessorFiveDays.PridobiPodatke(podatkiTeden, 0);
             podatkiDanes = DataProcessorFiveDays.PridobiPodatke(podatkiTeden, 0);
             podatkiJutri = DataProcessorFiveDays.PridobiPodatke(podatkiTeden, 1);
 
-            danesTemp.Content = Math.Floor(podatkiDanes.main.temp - 273.15);
-            danesVreme.Content = podatkiDanes.weather[0].description;
 
-            danesWind.Content = podatkiDanes.wind.speed;
-
+            #region Danes
+            //Nastavljanje napis za vsaki element za prvi dan v tabeli - DANES
+            danesDatum.Content = DataProcessorFiveDays.PridobiDatum(podatkiDanes.dt_txt);
             danesIkona.Source = DataProcessor.GetIcon(podatkiDanes.weather[0].icon);
+            danesVreme.Content = podatkiDanes.weather[0].description;
+            danesTemp.Content = Math.Floor(podatkiDanes.main.temp - 273.15) + "°C"; //Pretvorba iz Kelvinov v celzija
+
+            danesWind.Content = podatkiDanes.wind.speed + "km/h";
+            #endregion
+            #region Jutri
+            //Jutri
+
+            #endregion
         }
         #endregion
-
-
+        #region Gumb za zapiranje okna - buttonZapri_Click
+        private void buttonZapri_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
     }
 }

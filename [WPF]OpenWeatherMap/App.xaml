@@ -16,5 +16,17 @@
             <Setter Property="FontSize" Value="15" />
         </Style>
 
+        
+        <!-- Stil za gumb - CornerRadius, itd.-->
+        <Style TargetType="Button" x:Key="styledButton">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Style.Resources>
+        </Style>
+
     </Application.Resources>
 </Application>

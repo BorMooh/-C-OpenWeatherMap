@@ -80,5 +80,23 @@ namespace _WPF_OpenWeatherMap.FiveDayForecast
         }
 
         #endregion
+        /// <summary>
+        /// Metoda, ki iz dt_txt pridobi datum v pravilni Evropski obliki; DD-MM-YYYY
+        /// </summary>
+        /// <param name="dt_txt">Paramter je dt_txt iz API podatkov</param>
+        /// <returns>
+        /// DD-MM
+        /// </returns>
+        public static string PridobiDatum(string dt_txt)
+        {
+            //Najprej odstranimo čas od celega napisa, tako da ostane samo dan, mesec in leto
+            dt_txt = dt_txt.Substring(0,10);
+            
+            //Vsak element(D,M,Y) dodamo v array, vsakega v svojo celico
+            //[0] - Year | [1] - Month | [2] - Day
+            string[] datum = dt_txt.Split('-');
+
+            return $"{datum[2]}. {datum[1]}";
+        }
     }
 }

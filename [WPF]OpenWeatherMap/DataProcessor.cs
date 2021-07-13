@@ -12,6 +12,7 @@ namespace _WPF_OpenWeatherMap
 {
     public class DataProcessor
     {
+        #region Metoda za pridobivanje podatkov - GetWeather
         /// <summary>
         /// Metoda, s katero pridobimo podatke o vnešenem mestu. Kot parameter vnesemo določeno mesto 
         /// </summary>
@@ -32,14 +33,13 @@ namespace _WPF_OpenWeatherMap
                 var result = JsonConvert.DeserializeObject<WeatherModel.Root>(json);
                 WeatherModel.Root output = result;
 
-
                 //Metoda vrne tip WeatherModel z vsemi podatki
                 return output;
             }
 
-
         }
-
+        #endregion
+        #region Metoda za pridobivanje ikone - GetIcon
         //Metoda za pridobivanje ikone 
         public static BitmapImage GetIcon(string id)
         {
@@ -52,7 +52,8 @@ namespace _WPF_OpenWeatherMap
 
             return bmi;
         }
-
+        #endregion
+        #region Metoda za pridobivanje google maps linka - GetLink
         //Metoda za pridobivanje Google Maps linka iz latitude in longitude
         public static string GetLink(double lat, double lon)
         {
@@ -62,6 +63,8 @@ namespace _WPF_OpenWeatherMap
 
             return $"https://www.google.com/maps/place/{latCorrect} {lonCorrect}";
         }
+
+        #endregion
     }
 
 
