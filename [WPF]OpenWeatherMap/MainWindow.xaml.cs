@@ -96,12 +96,7 @@ namespace _WPF_OpenWeatherMap
 
             #region Vreme
             //Za dodajanje slike
-            Uri weatherUri = new Uri(DataProcessor.GetIcon(podatki.weather[0].icon.ToString()), UriKind.Absolute);
-            BitmapImage bmi = new BitmapImage();
-            bmi.BeginInit();
-            bmi.UriSource = weatherUri;
-            bmi.EndInit();
-            weatherIcon.Source = bmi;
+            weatherIcon.Source = DataProcessor.GetIcon(podatki.weather[0].icon);
 
             weatherDescription.Content = podatki.weather[0].description;
             #endregion

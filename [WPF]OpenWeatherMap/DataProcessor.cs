@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 using _WPF_OpenWeatherMap.Model;
 using Newtonsoft.Json;
 
@@ -40,12 +41,16 @@ namespace _WPF_OpenWeatherMap
         }
 
         //Metoda za pridobivanje ikone 
-        public static string GetIcon(string id)
+        public static BitmapImage GetIcon(string id)
         {
-            string fullpath = "http://openweathermap.org/img/wn/";
-            fullpath += id + ".png";
 
-            return fullpath;
+            Uri weatherUri = new Uri($"http://openweathermap.org/img/wn/{id}.png", UriKind.Absolute);
+            BitmapImage bmi = new BitmapImage();
+            bmi.BeginInit();
+            bmi.UriSource = weatherUri;
+            bmi.EndInit();
+
+            return bmi;
         }
 
         //Metoda za pridobivanje Google Maps linka iz latitude in longitude

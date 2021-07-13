@@ -39,7 +39,7 @@ namespace _WPF_OpenWeatherMap.FiveDayForecast
             }
         }
         #endregion
-        #region Pridobivanje podatkov za vsak dan ob 12ih - 
+        #region Pridobivanje podatkov za vsak dan ob 12ih - PridobiPodatke
         /// <summary>
         /// 
         /// </summary>

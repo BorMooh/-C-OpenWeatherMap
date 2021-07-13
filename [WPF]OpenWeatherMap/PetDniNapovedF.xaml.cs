@@ -61,17 +61,12 @@ namespace _WPF_OpenWeatherMap
             podatkiDanes = DataProcessorFiveDays.PridobiPodatke(podatkiTeden, 0);
             podatkiJutri = DataProcessorFiveDays.PridobiPodatke(podatkiTeden, 1);
 
-            danesTemp.Content = podatkiDanes.main.temp;
-            danesVreme.Content = podatkiDanes.weather[0].description; 
+            danesTemp.Content = Math.Floor(podatkiDanes.main.temp - 273.15);
+            danesVreme.Content = podatkiDanes.weather[0].description;
 
-            //SKRAJŠAJ KODO!!!
-            Uri weatherUri = new Uri(DataProcessor.GetIcon(podatkiDanes.weather[0].icon.ToString()), UriKind.Absolute);
-            BitmapImage bmi = new BitmapImage();
-            bmi.BeginInit();
-            bmi.UriSource = weatherUri;
-            bmi.EndInit();
-            danesIkona.Source = bmi;
-            ///
+            danesWind.Content = podatkiDanes.wind.speed;
+
+            danesIkona.Source = DataProcessor.GetIcon(podatkiDanes.weather[0].icon);
         }
         #endregion
 
